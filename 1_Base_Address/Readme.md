@@ -23,4 +23,7 @@
 - SRAM:
     - Purpose: Volatile memory used for temporary data storage during program execution. It's where the variables, stack, and buffer are stored.
     - Usage: Use to store dynamic data like variables, fuction call stacks and temporary buffers. Faster access compared to Flash memory but loses its contents when power off.
-    
+
+##### Where to find base addresses of peripheral ?
+
+- ```3.Memory and bus architecture``` -> ```3.3.Memory map```
