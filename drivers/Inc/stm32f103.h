@@ -60,17 +60,23 @@ typedef struct{
 #define RCC ((RCC_RegDef_t *)RCC_BASEADDR)
 
 
-#define GPIOA_PCLK_EN() (RCC->APB2_ENR |= (1<<2))
-#define GPIOB_PCLK_EN() (RCC->APB2_ENR |= (1<<3))
-#define GPIOC_PCLK_EN() (RCC->APB2_ENR |= (1<<4))
-#define GPIOD_PCLK_EN() (RCC->APB2_ENR |= (1<<5))
-#define GPIOE_PCLK_EN() (RCC->APB2_ENR |= (1<<6))
+#define GPIOA_PCLK_EN() (RCC->APB2ENR |= (1<<2))
+#define GPIOB_PCLK_EN() (RCC->APB2ENR |= (1<<3))
+#define GPIOC_PCLK_EN() (RCC->APB2ENR |= (1<<4))
+#define GPIOD_PCLK_EN() (RCC->APB2ENR |= (1<<5))
+#define GPIOE_PCLK_EN() (RCC->APB2ENR |= (1<<6))
 
-#define GPIOA_PCLK_DI() (RCC->APB2_RSTR &=~ (1<<2))
-#define GPIOB_PCLK_DI() (RCC->APB2_RSTR &=~ (1<<3))
-#define GPIOC_PCLK_DI() (RCC->APB2_RSTR &=~ (1<<4))
-#define GPIOD_PCLK_DI() (RCC->APB2_RSTR &=~ (1<<5))
-#define GPIOE_PCLK_DI() (RCC->APB2_RSTR &=~ (1<<6))
+#define GPIOA_PCLK_DI() (RCC->APB2RSTR &=~ (1<<2))
+#define GPIOB_PCLK_DI() (RCC->APB2RSTR &=~ (1<<3))
+#define GPIOC_PCLK_DI() (RCC->APB2RSTR &=~ (1<<4))
+#define GPIOD_PCLK_DI() (RCC->APB2RSTR &=~ (1<<5))
+#define GPIOE_PCLK_DI() (RCC->APB2RSTR &=~ (1<<6))
+
+#define GPIOA_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<2)); (RCC->APB2RSTR &= ~(1<<2)); }while(0)
+#define GPIOB_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<3)); (RCC->APB2RSTR &= ~(1<<3)); }while(0)
+#define GPIOC_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<4)); (RCC->APB2RSTR &= ~(1<<4)); }while(0)
+#define GPIOD_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<5)); (RCC->APB2RSTR &= ~(1<<5)); }while(0)
+#define GPIOE_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<6)); (RCC->APB2RSTR &= ~(1<<6)); }while(0)
 
 #define ENABLE 1
 #define DISABLE 0
