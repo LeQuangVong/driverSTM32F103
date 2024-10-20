@@ -243,9 +243,9 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ./drivers/Src/stm32f103_gpio.o
  .bss           0x0000000000000000        0x0 ./drivers/Src/stm32f103_gpio.o
  .text.PeriClockControl
-                0x0000000000000000       0xa0 ./drivers/Src/stm32f103_gpio.o
+                0x0000000000000000      0x110 ./drivers/Src/stm32f103_gpio.o
  .text.GPIO_Init
-                0x0000000000000000      0x144 ./drivers/Src/stm32f103_gpio.o
+                0x0000000000000000      0x162 ./drivers/Src/stm32f103_gpio.o
  .text.GPIO_DeInit
                 0x0000000000000000       0xd4 ./drivers/Src/stm32f103_gpio.o
  .text.GPIO_ReadFromInputPin
@@ -258,7 +258,7 @@ Discarded input sections
                 0x0000000000000000       0x1c ./drivers/Src/stm32f103_gpio.o
  .text.GPIO_ToggleOutputPin
                 0x0000000000000000       0x28 ./drivers/Src/stm32f103_gpio.o
- .debug_info    0x0000000000000000      0x47c ./drivers/Src/stm32f103_gpio.o
+ .debug_info    0x0000000000000000      0x46d ./drivers/Src/stm32f103_gpio.o
  .debug_abbrev  0x0000000000000000      0x10f ./drivers/Src/stm32f103_gpio.o
  .debug_aranges
                 0x0000000000000000       0x58 ./drivers/Src/stm32f103_gpio.o
@@ -272,9 +272,9 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a ./drivers/Src/stm32f103_gpio.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/Src/stm32f103_gpio.o
  .debug_macro   0x0000000000000000      0x11e ./drivers/Src/stm32f103_gpio.o
- .debug_macro   0x0000000000000000       0xb2 ./drivers/Src/stm32f103_gpio.o
- .debug_line    0x0000000000000000      0x60a ./drivers/Src/stm32f103_gpio.o
- .debug_str     0x0000000000000000     0x481d ./drivers/Src/stm32f103_gpio.o
+ .debug_macro   0x0000000000000000       0xb8 ./drivers/Src/stm32f103_gpio.o
+ .debug_line    0x0000000000000000      0x668 ./drivers/Src/stm32f103_gpio.o
+ .debug_str     0x0000000000000000     0x483c ./drivers/Src/stm32f103_gpio.o
  .comment       0x0000000000000000       0x54 ./drivers/Src/stm32f103_gpio.o
  .debug_frame   0x0000000000000000      0x14c ./drivers/Src/stm32f103_gpio.o
  .ARM.attributes
