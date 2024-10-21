@@ -45,6 +45,17 @@ void PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 	}
 }
 
+void PeriClockAFIOControl(AFIO_RegDef_t *pAFIO, uint8_t EnorDi)
+{
+	if(EnorDi == ENABLE)
+	{
+		if(pAFIO == AFIO)
+		{
+			AFIO_PCLK_EN();
+		}
+	}
+}
+
 /*
 	Description: Hàm này cài đặt mode và config các Pin của Port
 */
@@ -79,6 +90,32 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 		finalConfig = CONFIG_INPUT_PULL_UP_PULL_DOWN;
 	}
 
+	if(pGPIOHandle->GPIO_PinConfig.PinMode == MODE_INPUT && (pGPIOHandle->GPIO_PinConfig.Interrupt == IT_FALLING_EDGE || pGPIOHandle->GPIO_PinConfig.Interrupt == IT_RISING_EDGE
+																|| pGPIOHandle->GPIO_PinConfig.Interrupt == IT_FALLING_AND_RISING_EDGE))
+	{
+		PeriClockAFIOControl(pGPIOHandle->pAFIO,ENABLE);//Enable AFIO
+
+		if(pGPIOHandle->GPIO_PinConfig.Interrupt == IT_FALLING_EDGE)
+		{
+			EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+			EXTI->RTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+
+		}else if(pGPIOHandle->GPIO_PinConfig.Interrupt == IT_RISING_EDGE)
+		{
+			EXTI->FTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+		}else if(pGPIOHandle->GPIO_PinConfig.Interrupt == IT_FALLING_AND_RISING_EDGE)
+		{
+			EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+		}
+
+		uint8_t temp1 = pGPIOHandle->GPIO_PinConfig.PinNumber / 4;
+		uint8_t temp2 = pGPIOHandle->GPIO_PinConfig.PinNumber % 4;
+		uint8_t code = GPIO_BASSADDR_TO_CODE(pGPIOHandle->pGPIOx);
+		AFIO->EXTICR[temp1] = code << (temp2*4);
+
+	}
 	/*
 			Description: Cấu hình cho thanh ghi GPIOx_CRL, Port x configuration bits (y= 0 .. 7)
 						- lặp từ 0->7 tương ứng với 8 pin: 1pin có 4 bits

@@ -7,10 +7,12 @@ typedef struct{
 	uint8_t PinNumber;
 	uint8_t PinMode;
 	uint8_t PinConfig;
+	uint8_t Interrupt;
 }GPIO_PinConfig_t;
 
 typedef struct{
 	GPIO_RegDef_t *pGPIOx;
+	AFIO_RegDef_t *pAFIO;
 	GPIO_PinConfig_t GPIO_PinConfig;
 }GPIO_Handle_t;
 
@@ -68,6 +70,10 @@ typedef struct{
 
 #define MODE_CONFIG_CLEAR 0x0000000F
 #define MODE_CONFIG_SIZE 4
+
+#define IT_FALLING_EDGE										0x00000005
+#define IT_RISING_EDGE										0x00000006
+#define IT_FALLING_AND_RISING_EDGE							0x00000007
 
 void PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi);
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
