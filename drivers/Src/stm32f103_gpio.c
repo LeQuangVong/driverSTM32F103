@@ -89,7 +89,14 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 		}
 		finalConfig = CONFIG_INPUT_PULL_UP_PULL_DOWN;
 	}
-
+	/*
+	 * Description:Kiểm tra xem có yêu cầu ngắt hay không
+	 	 	 	 - Nếu có thì Enable AFIO
+	 	 	 	 - Nếu ngắt cạnh lên thì set bit tương ứng với chân yêu cầu ngắt vào thanh ghi EXTI_FTSR
+	 	 	 	 - Nếu ngắt cạnh xuống thì set bit tương ứng với chân yêu cầu ngắt vào thanh ghi EXTI_RTSR
+	 	 	 	 - Nếu ngắt cạnh lên và cạnh xuống thì set bit tương ứng với chân yêu cầu ngắt vào cả 2 thanh ghi
+	 	 	 	 - Cấu hình ngắt với thanh ghi AFIO_EXTICR[x]
+	 */
 	if(pGPIOHandle->GPIO_PinConfig.PinMode == MODE_INPUT && (pGPIOHandle->GPIO_PinConfig.Interrupt == IT_FALLING_EDGE || pGPIOHandle->GPIO_PinConfig.Interrupt == IT_RISING_EDGE
 																|| pGPIOHandle->GPIO_PinConfig.Interrupt == IT_FALLING_AND_RISING_EDGE))
 	{
@@ -110,14 +117,14 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
 		}
 
-		uint8_t temp1 = pGPIOHandle->GPIO_PinConfig.PinNumber / 4;
-		uint8_t temp2 = pGPIOHandle->GPIO_PinConfig.PinNumber % 4;
-		uint8_t code = GPIO_BASSADDR_TO_CODE(pGPIOHandle->pGPIOx);
+		uint8_t temp1 = pGPIOHandle->GPIO_PinConfig.PinNumber / 4;//tìm số thanh ghi EXTICR tương ứng với số chân
+		uint8_t temp2 = pGPIOHandle->GPIO_PinConfig.PinNumber % 4;//tìm số Pin trong thanh ghi EXTICR
+		uint8_t code = GPIO_BASSADDR_TO_CODE(pGPIOHandle->pGPIOx);//giá trị tương ứng với Port
 		AFIO->EXTICR[temp1] = code << (temp2*4);
 
 	}
 	/*
-			Description: Cấu hình cho thanh ghi GPIOx_CRL, Port x configuration bits (y= 0 .. 7)
+		Description: Cấu hình cho thanh ghi GPIOx_CRL, Port x configuration bits (y= 0 .. 7)
 						- lặp từ 0->7 tương ứng với 8 pin: 1pin có 4 bits
 						- Tìm vị trí của vòng lặp tại pin nào
 						- Tìm vị trí hiện tại của pin đang cài đặt
@@ -126,7 +133,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 							+ Thiết lập cấu hình mới
 							+ cập nhật thanh ghi GPIOx_CRL
 
-			Example: realPosition = 0x04  (0x01 << 2): 0x0100
+		Example: realPosition = 0x04  (0x01 << 2): 0x0100
 					pGPIOHandle->GPIO_PinConfig.PinNumber = 2 (Pin_2): 0x0100
 					currentPosition = 0x0100 : realPosition & 0x0100 = 0x0100
 
@@ -264,6 +271,58 @@ void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint8_t value)
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t pinNumber)
 {
 	pGPIOx->ODR ^= (1<<pinNumber);
+}
+
+/*
+ * Description: Kích hoạt ngắt ngoài
+ */
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
+{
+	if(EnorDi == ENABLE)
+	{
+		if(IRQNumber <= 31)
+		{
+			*NVIC_ISER0 |= (1 << IRQNumber);
+		}else if(IRQNumber > 31 && IRQNumber < 64)
+		{
+			*NVIC_ISER1 |= (1 << (IRQNumber % 32));
+		}else if(IRQNumber >= 64 && IRQNumber < 96)
+		{
+			*NVIC_ISER2 |= (1 << (IRQNumber % 64));
+		}
+	}
+	else
+	{
+		if(IRQNumber <= 31)
+		{
+			*NVIC_ICER0 |= (1 << IRQNumber);
+		}else if(IRQNumber > 31 && IRQNumber < 64)
+		{
+			*NVIC_ICER1 |= (1 << (IRQNumber % 32));
+		}else if(IRQNumber >= 64 && IRQNumber < 96)
+		{
+			*NVIC_ICER2 |= (1 << (IRQNumber % 64));
+		}
+	}
+}
+
+/*
+ * Description: Thiết lập mức độ ưu tiên cho ngắt ngoài
+ */
+
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority)
+{
+	uint8_t ipr = IRQNumber /4;
+	uint8_t irq = IRQNumber %4;
+	*(NVIC_PR_BASE_ADDR + ipr) |= (IRQPriority << (8*irq + 4));
+}
+
+void GPIO_IRQHandling(uint8_t PinNumber)
+{
+	if(EXTI->PR & (1<<PinNumber))
+	{
+		EXTI->PR |= (1<<PinNumber);
+	}
 }
 
 void PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi);
