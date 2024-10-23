@@ -121,7 +121,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 		uint8_t temp2 = pGPIOHandle->GPIO_PinConfig.PinNumber % 4;//tìm số Pin trong thanh ghi EXTICR
 		uint8_t code = GPIO_BASSADDR_TO_CODE(pGPIOHandle->pGPIOx);//giá trị tương ứng với Port
 		AFIO->EXTICR[temp1] = code << (temp2*4);
-
+		EXTI->IMR |= 1 << pGPIOHandle->GPIO_PinConfig.PinNumber;
 	}
 	/*
 		Description: Cấu hình cho thanh ghi GPIOx_CRL, Port x configuration bits (y= 0 .. 7)
