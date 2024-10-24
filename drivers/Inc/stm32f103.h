@@ -39,6 +39,10 @@
 #define GPIOF_BASEADDR (APB2_BASEADDR + 0x1C00)
 #define GPIOG_BASEADDR (APB2_BASEADDR + 0x2000)
 
+#define SPI1_BASEADDR	(APB2_BASEADDR + 0x3000)
+#define SPI2_BASEADDR	(APB1_BASEADDR + 0x3800)
+#define SPI3_BASEADDR	(APB1_BASEADDR + 0x3C00)
+
 typedef struct{
 	__vo uint32_t CRL;
 	__vo uint32_t CRH;
@@ -94,6 +98,22 @@ typedef struct{
 
 #define RCC ((RCC_RegDef_t *)RCC_BASEADDR)
 
+typedef struct{
+	__vo uint32_t CR1;
+	__vo uint32_t CR2;
+	__vo uint32_t SR;
+	__vo uint32_t DR;
+	__vo uint32_t CRCPR;
+	__vo uint32_t RXCRCR;
+	__vo uint32_t TXCRCR;
+	__vo uint32_t I2SCFGR;
+	__vo uint32_t I2SPR;
+}SPI_RegDef_t;
+
+#define SPI1 ((SPI_RegDef_t *)SPI1_BASEADDR)
+#define SPI2 ((SPI_RegDef_t *)SPI2_BASEADDR)
+#define SPI3 ((SPI_RegDef_t *)SPI3_BASEADDR)
+
 
 #define GPIOA_PCLK_EN() (RCC->APB2ENR |= (1<<2))
 #define GPIOB_PCLK_EN() (RCC->APB2ENR |= (1<<3))
@@ -103,11 +123,19 @@ typedef struct{
 
 #define AFIO_PCLK_EN() (RCC->APB2ENR |= (1<<0))
 
+#define SPI1_PCLK_EN()	(RCC->APB2ENR |= (1<<12))
+#define SPI2_PCLK_EN()	(RCC->APB1ENR |= (1<<14))
+#define SPI3_PCLK_EN()	(RCC->APB1ENR |= (1<<15))
+
 #define GPIOA_PCLK_DI() (RCC->APB2RSTR &=~ (1<<2))
 #define GPIOB_PCLK_DI() (RCC->APB2RSTR &=~ (1<<3))
 #define GPIOC_PCLK_DI() (RCC->APB2RSTR &=~ (1<<4))
 #define GPIOD_PCLK_DI() (RCC->APB2RSTR &=~ (1<<5))
 #define GPIOE_PCLK_DI() (RCC->APB2RSTR &=~ (1<<6))
+
+#define SPI1_PCLK_DI()	(RCC->APB2ENR &=~ (1<<12))
+#define SPI2_PCLK_DI()	(RCC->APB1ENR &=~ (1<<14))
+#define SPI3_PCLK_DI()	(RCC->APB1ENR &=~ (1<<15))
 
 #define GPIOA_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<2)); (RCC->APB2RSTR &= ~(1<<2)); }while(0)
 #define GPIOB_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<3)); (RCC->APB2RSTR &= ~(1<<3)); }while(0)
