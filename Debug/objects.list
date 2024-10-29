@@ -3,5 +3,6 @@
 "./Src/sysmem.o"
 "./Startup/startup_stm32f103c6tx.o"
 "./drivers/Src/stm32f103_gpio.o"
+"./drivers/Src/stm32f103_rcc.o"
 "./drivers/Src/stm32f103_spi.o"
 "./drivers/Src/stm32f103_uart.o"

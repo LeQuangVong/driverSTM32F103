@@ -1,0 +1,2 @@
+stm32f103_rcc.c:7:10:RCC_GetPCLK1Value	24	static
+stm32f103_rcc.c:43:10:RCC_GetPCLK2Value	24	static

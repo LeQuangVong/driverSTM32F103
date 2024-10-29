@@ -1,1 +1,2 @@
 stm32f103_uart.c:3:6:USART_PeriClockControl	16	static
+stm32f103_uart.c:27:6:USART_Init	24	static
