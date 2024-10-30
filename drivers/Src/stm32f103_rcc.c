@@ -7,7 +7,7 @@ uint8_t APB2_Prescaler[4] = {2,4,8,16};
 uint32_t RCC_GetPCLK1Value(void)
 {
 	uint32_t pclk1, SystemClk;
-	uint8_t clksrc, temp, preAHB, preAPB1, preAPB2;
+	uint8_t clksrc, temp, preAHB, preAPB1;
 
 	clksrc = ((RCC->CFGR >> 2) & 0x03);
 

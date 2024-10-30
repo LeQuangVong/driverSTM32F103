@@ -3,6 +3,7 @@
 #define INC_STM32F103_UART_H_
 
 #include "stm32f103.h"
+#include <stddef.h>
 
 typedef struct{
 	uint8_t USART_Mode;
@@ -20,9 +21,13 @@ typedef struct{
 	uint8_t *pRxBuffer;
 	uint32_t TxLen;
 	uint32_t RxLen;
-	uint8_t  TxState;
-	uint8_t  RxState;
+	uint8_t  TxBusyState;
+	uint8_t  RxBusyState;
 }USART_Handle_t;
+
+#define USART_BUSY_IN_TX	2
+#define USART_BUSY_IN_RX	1
+#define USART_READY			0
 
 #define USART_MODE_ONLY_TX	0
 #define USART_MODE_ONLY_RX	1
