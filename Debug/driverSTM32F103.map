@@ -279,14 +279,29 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./drivers/Src/stm32f103_gpio.o
  .debug_macro   0x0000000000000000       0x6a ./drivers/Src/stm32f103_gpio.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/Src/stm32f103_gpio.o
- .debug_macro   0x0000000000000000      0x481 ./drivers/Src/stm32f103_gpio.o
+ .debug_macro   0x0000000000000000      0x5cf ./drivers/Src/stm32f103_gpio.o
  .debug_macro   0x0000000000000000       0xca ./drivers/Src/stm32f103_gpio.o
  .debug_line    0x0000000000000000      0x8da ./drivers/Src/stm32f103_gpio.o
- .debug_str     0x0000000000000000     0x55ae ./drivers/Src/stm32f103_gpio.o
+ .debug_str     0x0000000000000000     0x593c ./drivers/Src/stm32f103_gpio.o
  .comment       0x0000000000000000       0x54 ./drivers/Src/stm32f103_gpio.o
  .debug_frame   0x0000000000000000      0x1f0 ./drivers/Src/stm32f103_gpio.o
  .ARM.attributes
                 0x0000000000000000       0x2d ./drivers/Src/stm32f103_gpio.o
+ .group         0x0000000000000000        0xc ./drivers/Src/stm32f103_i2c.o
+ .text          0x0000000000000000        0x0 ./drivers/Src/stm32f103_i2c.o
+ .data          0x0000000000000000        0x0 ./drivers/Src/stm32f103_i2c.o
+ .bss           0x0000000000000000        0x0 ./drivers/Src/stm32f103_i2c.o
+ .debug_info    0x0000000000000000       0x21 ./drivers/Src/stm32f103_i2c.o
+ .debug_abbrev  0x0000000000000000       0x13 ./drivers/Src/stm32f103_i2c.o
+ .debug_aranges
+                0x0000000000000000       0x18 ./drivers/Src/stm32f103_i2c.o
+ .debug_macro   0x0000000000000000       0x11 ./drivers/Src/stm32f103_i2c.o
+ .debug_macro   0x0000000000000000      0xaa2 ./drivers/Src/stm32f103_i2c.o
+ .debug_line    0x0000000000000000       0x3f ./drivers/Src/stm32f103_i2c.o
+ .debug_str     0x0000000000000000     0x2d71 ./drivers/Src/stm32f103_i2c.o
+ .comment       0x0000000000000000       0x54 ./drivers/Src/stm32f103_i2c.o
+ .ARM.attributes
+                0x0000000000000000       0x33 ./drivers/Src/stm32f103_i2c.o
  .group         0x0000000000000000        0xc ./drivers/Src/stm32f103_rcc.o
  .group         0x0000000000000000        0xc ./drivers/Src/stm32f103_rcc.o
  .group         0x0000000000000000        0xc ./drivers/Src/stm32f103_rcc.o
@@ -321,9 +336,9 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./drivers/Src/stm32f103_rcc.o
  .debug_macro   0x0000000000000000       0x6a ./drivers/Src/stm32f103_rcc.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/Src/stm32f103_rcc.o
- .debug_macro   0x0000000000000000      0x481 ./drivers/Src/stm32f103_rcc.o
+ .debug_macro   0x0000000000000000      0x5cf ./drivers/Src/stm32f103_rcc.o
  .debug_line    0x0000000000000000      0x4a8 ./drivers/Src/stm32f103_rcc.o
- .debug_str     0x0000000000000000     0x510f ./drivers/Src/stm32f103_rcc.o
+ .debug_str     0x0000000000000000     0x549d ./drivers/Src/stm32f103_rcc.o
  .comment       0x0000000000000000       0x54 ./drivers/Src/stm32f103_rcc.o
  .debug_frame   0x0000000000000000       0x60 ./drivers/Src/stm32f103_rcc.o
  .ARM.attributes
@@ -392,11 +407,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./drivers/Src/stm32f103_spi.o
  .debug_macro   0x0000000000000000       0x6a ./drivers/Src/stm32f103_spi.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/Src/stm32f103_spi.o
- .debug_macro   0x0000000000000000      0x481 ./drivers/Src/stm32f103_spi.o
+ .debug_macro   0x0000000000000000      0x5cf ./drivers/Src/stm32f103_spi.o
  .debug_macro   0x0000000000000000      0x174 ./drivers/Src/stm32f103_spi.o
  .debug_macro   0x0000000000000000       0xb2 ./drivers/Src/stm32f103_spi.o
  .debug_line    0x0000000000000000      0x8db ./drivers/Src/stm32f103_spi.o
- .debug_str     0x0000000000000000     0x58a1 ./drivers/Src/stm32f103_spi.o
+ .debug_str     0x0000000000000000     0x5c2f ./drivers/Src/stm32f103_spi.o
  .comment       0x0000000000000000       0x54 ./drivers/Src/stm32f103_spi.o
  .debug_frame   0x0000000000000000      0x2ec ./drivers/Src/stm32f103_spi.o
  .ARM.attributes
@@ -455,11 +470,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./drivers/Src/stm32f103_uart.o
  .debug_macro   0x0000000000000000       0x6a ./drivers/Src/stm32f103_uart.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/Src/stm32f103_uart.o
- .debug_macro   0x0000000000000000      0x481 ./drivers/Src/stm32f103_uart.o
+ .debug_macro   0x0000000000000000      0x5cf ./drivers/Src/stm32f103_uart.o
  .debug_macro   0x0000000000000000      0x174 ./drivers/Src/stm32f103_uart.o
  .debug_macro   0x0000000000000000       0xf4 ./drivers/Src/stm32f103_uart.o
  .debug_line    0x0000000000000000      0xa12 ./drivers/Src/stm32f103_uart.o
- .debug_str     0x0000000000000000     0x59ef ./drivers/Src/stm32f103_uart.o
+ .debug_str     0x0000000000000000     0x5d7d ./drivers/Src/stm32f103_uart.o
  .comment       0x0000000000000000       0x54 ./drivers/Src/stm32f103_uart.o
  .debug_frame   0x0000000000000000      0x230 ./drivers/Src/stm32f103_uart.o
  .ARM.attributes
@@ -526,6 +541,7 @@ LOAD ./Src/syscalls.o
 LOAD ./Src/sysmem.o
 LOAD ./Startup/startup_stm32f103c6tx.o
 LOAD ./drivers/Src/stm32f103_gpio.o
+LOAD ./drivers/Src/stm32f103_i2c.o
 LOAD ./drivers/Src/stm32f103_rcc.o
 LOAD ./drivers/Src/stm32f103_spi.o
 LOAD ./drivers/Src/stm32f103_uart.o
@@ -800,7 +816,7 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_ranges  0x0000000000000000       0x10 ./Src/main.o
  .debug_ranges  0x0000000000000010       0x20 ./Startup/startup_stm32f103c6tx.o
 
-.debug_macro    0x0000000000000000     0x13e2
+.debug_macro    0x0000000000000000     0x1530
  .debug_macro   0x0000000000000000       0x6c ./Src/main.o
  .debug_macro   0x000000000000006c      0xaa2 ./Src/main.o
  .debug_macro   0x0000000000000b0e       0x22 ./Src/main.o
@@ -809,16 +825,16 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x0000000000000c0f      0x103 ./Src/main.o
  .debug_macro   0x0000000000000d12       0x6a ./Src/main.o
  .debug_macro   0x0000000000000d7c      0x1df ./Src/main.o
- .debug_macro   0x0000000000000f5b      0x487 ./Src/main.o
+ .debug_macro   0x0000000000000f5b      0x5d5 ./Src/main.o
 
 .debug_line     0x0000000000000000      0x44a
  .debug_line    0x0000000000000000      0x3c6 ./Src/main.o
  .debug_line    0x00000000000003c6       0x84 ./Startup/startup_stm32f103c6tx.o
 
-.debug_str      0x0000000000000000     0x4eb3
- .debug_str     0x0000000000000000     0x4e82 ./Src/main.o
-                                       0x4fdd (size before relaxing)
- .debug_str     0x0000000000004e82       0x31 ./Startup/startup_stm32f103c6tx.o
+.debug_str      0x0000000000000000     0x5241
+ .debug_str     0x0000000000000000     0x5210 ./Src/main.o
+                                       0x536b (size before relaxing)
+ .debug_str     0x0000000000005210       0x31 ./Startup/startup_stm32f103c6tx.o
                                          0x5d (size before relaxing)
 
 .comment        0x0000000000000000       0x53

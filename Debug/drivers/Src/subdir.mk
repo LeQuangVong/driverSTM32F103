@@ -6,18 +6,21 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../drivers/Src/stm32f103_gpio.c \
+../drivers/Src/stm32f103_i2c.c \
 ../drivers/Src/stm32f103_rcc.c \
 ../drivers/Src/stm32f103_spi.c \
 ../drivers/Src/stm32f103_uart.c 
 
 OBJS += \
 ./drivers/Src/stm32f103_gpio.o \
+./drivers/Src/stm32f103_i2c.o \
 ./drivers/Src/stm32f103_rcc.o \
 ./drivers/Src/stm32f103_spi.o \
 ./drivers/Src/stm32f103_uart.o 
 
 C_DEPS += \
 ./drivers/Src/stm32f103_gpio.d \
+./drivers/Src/stm32f103_i2c.d \
 ./drivers/Src/stm32f103_rcc.d \
 ./drivers/Src/stm32f103_spi.d \
 ./drivers/Src/stm32f103_uart.d 
