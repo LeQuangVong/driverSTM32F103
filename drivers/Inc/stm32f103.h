@@ -181,10 +181,12 @@ typedef struct{
 #define GPIOD_PCLK_DI() (RCC->APB2RSTR &=~ (1<<5))
 #define GPIOE_PCLK_DI() (RCC->APB2RSTR &=~ (1<<6))
 
-#define SPI1_PCLK_DI()	(RCC->APB2ENR &=~ (1<<12))
-#define SPI2_PCLK_DI()	(RCC->APB1ENR &=~ (1<<14))
-#define SPI3_PCLK_DI()	(RCC->APB1ENR &=~ (1<<15))
+#define SPI1_PCLK_DI()	(RCC->APB2RSTR &=~ (1<<12))
+#define SPI2_PCLK_DI()	(RCC->APB1RSTR &=~ (1<<14))
+#define SPI3_PCLK_DI()	(RCC->APB1RSTR &=~ (1<<15))
 
+#define I2C1_PCLK_DI()	(RCC->APB1RSTR &=~ (1<<21))
+#define I2C2_PCLK_DI()	(RCC->APB1RSTR &=~ (1<<22))
 
 #define GPIOA_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<2)); (RCC->APB2RSTR &= ~(1<<2)); }while(0)
 #define GPIOB_REG_RESET()		do{	(RCC->APB2RSTR |= (1<<3)); (RCC->APB2RSTR &= ~(1<<3)); }while(0)
@@ -205,6 +207,17 @@ typedef struct{
 #define IRQ_NO_SPI1				35
 #define IRQ_NO_SPI2				36
 #define IRQ_NO_SPI3				51
+
+#define IRQ_NO_USART1			37
+#define IRQ_NO_USART2			38
+#define IRQ_NO_USART3			39
+#define IRQ_NO_UART4			52
+#define IRQ_NO_UART5			53
+
+#define IRQ_NO_I2C1_EV			31
+#define IRQ_NO_I2C1_ER			32
+#define IRQ_NO_I2C2_EV			33
+#define IRQ_NO_I2C2_ER			34
 
 #define SPI_CR1_CPHA			0
 #define SPI_CR1_CPOL			1
