@@ -1,0 +1,8 @@
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Src/test_uart.o"
+"./Startup/startup_stm32f103c8tx.o"
+"./myDrivers/Src/my_gpio_stm32f103.o"
+"./myDrivers/Src/my_rcc_stm32f103.o"
+"./myDrivers/Src/my_spi_stm32f103.o"
+"./myDrivers/Src/my_uart_stm32f103.o"

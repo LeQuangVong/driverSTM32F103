@@ -1,0 +1,7 @@
+my_gpio_stm32f103.c:6:6:PeriClockControl	16	static
+my_gpio_stm32f103.c:47:6:PeriClockAFIOControl	16	static
+my_gpio_stm32f103.c:58:6:GPIO_Init	40	static
+my_gpio_stm32f103.c:182:6:GPIO_ToggleOutputPin	16	static
+my_gpio_stm32f103.c:187:6:GPIO_IRQInterruptConfig	16	static
+my_gpio_stm32f103.c:221:6:GPIO_IRQPriorityConfig	24	static
+my_gpio_stm32f103.c:228:6:GPIO_IRQHandling	16	static

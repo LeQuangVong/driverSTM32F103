@@ -1,0 +1,14 @@
+my_uart_stm32f103.c:4:6:USART_PeriClockControl	16	static
+my_uart_stm32f103.c:28:6:USART_Init	24	static
+my_uart_stm32f103.c:93:6:USART_SetBaudRate	40	static
+my_uart_stm32f103.c:124:6:USART_PeripheralControl	16	static
+my_uart_stm32f103.c:135:9:USART_GetFlagStatus	24	static
+my_uart_stm32f103.c:146:6:USART_SendData	32	static
+my_uart_stm32f103.c:180:6:USART_ReceiveData	32	static
+my_uart_stm32f103.c:217:6:USART_ClearFlag	16	static
+my_uart_stm32f103.c:222:6:USART_IRQInterruptConfig	16	static
+my_uart_stm32f103.c:252:6:USART_IRQPriorityConfig	24	static
+my_uart_stm32f103.c:259:9:USART_SendDataIT	32	static
+my_uart_stm32f103.c:277:9:USART_ReceiveDataIT	32	static
+my_uart_stm32f103.c:294:6:USART_IRQHandling	32	static
+my_uart_stm32f103.c:469:28:USART_ApplicationEventCallBack	16	static
